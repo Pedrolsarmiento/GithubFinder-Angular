@@ -1,0 +1,54 @@
+    <mat-card *ngIf="user" [@change]="isLoading ? 'loading' : 'loaded'">
+      <mat-card-header>
+        <mat-card-title>{{ developer.name }}</mat-card-title>
+        <mat-card-subtitle>{{ developer.user }}</mat-card-subtitle>
+        <img mat-card-avatar
+        [ngStyle]="{'background-image': 'url(' + developer.avatar + ')', 'background-size': 'cover'  }">
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ developer.bio ? developer.bio : 'No biography'}}</p>
+      </mat-card-content>
+
+      <mat-list [@change]="isLoadingRepo ? 'loading' : 'loaded'" >
+        <h3>Repositories</h3>
+
+        <table class="repo-list mat-elevation-z8" mat-table [dataSource]="developer.repositories">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let repo"> {{repo.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="language">
+            <th mat-header-cell *matHeaderCellDef> Language </th>
+            <td mat-cell *matCellDef="let repo"> {{repo.lang ? repo.lang : '-'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="desc">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let repo"> {{repo.desc ? repo.desc : 'No Description'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="link">
+            <th mat-header-cell *matHeaderCellDef> Link </th>
+            <td mat-cell *matCellDef="let repo"> <a mat-raised-button href="{{repo.url}}">Link</a> </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-list>
+    </mat-card>
+
+    <div *ngIf="notFound" class="notFound">
+      <h3>Developer not found :(</h3>
+      <p>Please writte another username</p>
+    </div>
+
+
+    <div *ngIf="!user && !notFound" class="welcome">
+      <h3>Welcome to a Github Developers Finder</h3>
+      <p>This app uses <b>Angular</b> to create a finder with the help
+      of <a href="https://docs.github.com/en/rest">Github API</a><br><br>
+      Created by <a href="https://github.com/Pedrolsarmiento">pedrolsarmiento</a></p>
+    </div>

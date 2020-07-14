@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <span>Github Finder</span>
+
+  <span class="space"></span>
+
+  <form class="example-form" novalidate (ngSubmit)="search($event)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Find user</mat-label>
+      <input matInput [(ngModel)]="user" name="user">
+    </mat-form-field>
+  </form>
+
+</mat-toolbar>

@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  padding: 1em;
+}
+.layout > :nth-child(1){
+  flex: 0 0 20%;
+  margin-right: 1em;
+}
+.layout > :nth-child(2){
+  flex: 1 1 auto;
+  height: 80vh;
+}

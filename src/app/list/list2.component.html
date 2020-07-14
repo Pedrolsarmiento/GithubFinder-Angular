@@ -1,0 +1,6 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let login of users">
+     <a matLine routerLink="{{login}}" routerLinkActive="active">{{ login }}</a>
+     <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

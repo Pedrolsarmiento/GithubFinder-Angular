@@ -1,0 +1,15 @@
+<mat-selection-list #logins [multiple]="false"
+  (selectionChange)="changeUser(logins.selectedOptions.selected[0]?.value)"
+  [@changePageAnimation]="page">
+  <mat-list-option *ngFor="let login of usersToShow" [value]="login">
+    {{login}}
+    <mat-divider></mat-divider>
+  </mat-list-option>
+
+</mat-selection-list>
+
+<mat-paginator [length]="users.length"
+              [pageSize]="10"
+              [hidePageSize]="true"
+              (page)="changePage($event)">
+</mat-paginator>

@@ -1,0 +1,18 @@
+mat-toolbar {
+  background-color: black;
+  color: white;
+}
+.space {
+  flex: 1 1 auto;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 300px;
+  width: 100%;
+  font-size: 0.8em;
+  height: 50px;
+}
+
+.example-full-width {
+  width: 100%;
+}

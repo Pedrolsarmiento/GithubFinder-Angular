@@ -1,0 +1,32 @@
+    <mat-card *ngIf="user">
+      <mat-card-header>
+        <mat-card-title>{{ developer.name }}</mat-card-title>
+        <mat-card-subtitle>{{ developer.user }}</mat-card-subtitle>
+        <img mat-card-avatar
+        [ngStyle]="{'background-image': 'url(' + developer.avatar + ')', 'background-size': 'cover'  }">
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ developer.bio }}</p>
+      </mat-card-content>
+
+      <mat-list class="repo-list">
+        <h3>Repositories</h3>
+        <mat-list-item *ngFor="let repo of developer.repositories">
+          <h4>{{repo.name}}</h4>
+          <p>Language: {{repo.lang}}</p>
+          <p>Description: {{repo.desc ? repo.desc : 'No Description'}}</p>
+          <a mat-raised-button href="{{repo.url}}">Link</a>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <div *ngIf="notFound">
+      No encontrado :(
+    </div>
+
+
+    <div *ngIf="!user && !notFound">
+      Bienvenido
+    </div>

@@ -1,0 +1,37 @@
+.mat-card-avatar {
+  border-radius: 0px;
+  height: 60px;
+  width: 60px;
+}
+.mat-card-content {
+  font-size: 16px;
+}
+mat-card-content > p {
+  padding-top: 1em;
+}
+mat-list > h3 {
+  text-align: center;
+}
+.repo-list {
+  width: 100%;
+}
+.mat-cell, .mat-header-cell {
+  padding: 20px;
+}
+.mat-header-cell:last-of-type {
+  text-align: center;
+}
+
+.notFound, .welcome {
+  background-color: white;
+  padding: 2em;
+  text-align: center;
+}
+.notFound h3, .welcome h3{
+  font-size: 24px;
+  font-weight: bold;
+}
+.notFound p, .welcome p{
+  font-size: 16px;
+  font-weight: lighter;
+}
